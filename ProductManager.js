@@ -20,7 +20,7 @@ class ProductManager {
     this.producto = producto; // creo la variable productos
   }
 
-  producto = []; // creo el array productos
+  producto = []; // creo el array productos vacio
 
   async addProduct(producto) {
     // creo el metodo addProduct
