@@ -14,7 +14,7 @@
 //	Se llamará al método “updateProduct” y se intentará cambiar un campo de algún producto, se evaluará que no se elimine el id y que sí se haya hecho la actualización.
 //	Se llamará al método “deleteProduct”, se evaluará que realmente se elimine el producto o que arroje un error en caso de no existir
 
-const ProductManager = require("./ProductManager"); // importo la clase ProductManager
+const ProductManager = require("./src/ProductManager"); // importo la clase ProductManager
 
 const productManager = new ProductManager("./sku.json"); // creo una instancia de la clase ProductManager y le paso el nombre del archivo donde se guardaran los productos
 
@@ -29,11 +29,11 @@ const productManager = new ProductManager("./sku.json"); // creo una instancia d
     title: "producto prueba",
     description: "Este es un producto prueba",
     price: 200,
-    thumbnail: "Sin imagen",
+    thumbnail: "url imagen",
     code: "abc123",
     stock: 25,
   });
-  console.log(id + " Id asignado al Producto agregado");
+  console.log(id);
 
   const productos2 = await productManager.getProducts(); // llamo al metodo getProducts
   console.log(productos2);
@@ -55,7 +55,7 @@ const productManager = new ProductManager("./sku.json"); // creo una instancia d
   console.log(productoActualizado);
   console.log("Producto modificado");
 
-  const productoEliminado = await productManager.deleteProduct(1); // llamo al metodo deleteProduct
+  const productoEliminado = await productManager.deleteProduct(); // llamo al metodo deleteProduct
   console.log(productoEliminado);
   console.log(" Producto eliminado");
 })();
