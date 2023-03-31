@@ -18,7 +18,24 @@ const ProductManager = require("./ProductManager"); // importo la clase ProductM
 
 const productManager = new ProductManager("./sku.json"); // creo una instancia de la clase ProductManager y le paso el nombre del archivo donde se guardaran los productos
 
+const fs = require("fs"); // llamo a fs para poder usarlo
+const path = require("path"); // llamo a path para poder usarlo
+
+
 (async () => {
+  // verifico si el archivo existe
+  try {
+    await fs.promises.access(path.resolve("./", "sku.json"));
+  } catch (error) {
+    await fs.promises.writeFile(
+      path.resolve("./", "sku.json"),
+      JSON.stringify([], null, 2)
+    );
+  }
+})();
+
+
+    (async () => {
   // creo una funcion asyncrona
   const productos = await productManager.getProducts(); // llamo al metodo getProducts
   console.log(productos);
@@ -59,3 +76,5 @@ const productManager = new ProductManager("./sku.json"); // creo una instancia d
   console.log(productoEliminado);
   console.log(" Producto eliminado");
 })();
+
+
