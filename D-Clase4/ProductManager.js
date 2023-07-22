@@ -28,7 +28,7 @@ class ProductManager {
       const productos = await this.getProducts(); // llamo al metodo getProducts
       if (productos.length === 0) {
         // si el array esta vacio le asigno el id 1
-        producto.id = 1;
+        producto.id += 1;
       } else {
         producto.id = productos[productos.length - 1].id + 1; // si no le asigno el id del ultimo producto + 1
       }

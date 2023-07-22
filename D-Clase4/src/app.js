@@ -16,9 +16,9 @@
 const express = require('express');
 const app = express();
 const port = 8080;
-const ProductManager = require('../ProductManager');
+const ProductManager = require('../ProductManager.js');
 
-const productManager = new ProductManager('./productos.txt');
+const productManager = new ProductManager('./productos.json');
 
 app.get('/products', async (req, res) => {
     const limit = req.query.limit;
